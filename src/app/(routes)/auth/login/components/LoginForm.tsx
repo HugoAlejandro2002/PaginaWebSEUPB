@@ -121,7 +121,7 @@ const LoginForm = () => {
         )}
         <button type="submit" className=" bg-[#63CCC5] hover:bg-green-700 p-2 rounded-xl text-white font-medium mt-5">Ingresar</button>
       </form>
-      <button onClick={click} className=" bg-[#63CCC5] hover:bg-green-500 p-2 rounded-xl text-white font-medium">Ingresar como usuario</button>
+      <button onClick={click} className=" bg-[#63CCC5] hover:bg-green-500 p-2 rounded-xl text-white font-medium">Ingresar como estudiante</button>
 
     </div>
   );
