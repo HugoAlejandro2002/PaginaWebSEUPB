@@ -64,15 +64,18 @@ const OrderPage = () => {
         plateQuantity: plateQuantity - 1,
       };
 
+
+      const currentDate = new Date();
+      const formattedDate = currentDate.toISOString().split('T')[0];
+      const clientSchedule = `${formattedDate} ${data.time}`; // yyyy-mm-dd hh:mm
+
       const newOrderPlate = {
         clientCode: Number(code),
         clientName: username,
-        clientSchedule: String(time.start) + ":" + String(time.end),
+        clientSchedule: clientSchedule,
         plateId: id,
         ...plateGottenData,
       };
-
-      // await setReservedPlateFS(newOrderPlate);
 
       const updates: any = {};
 
@@ -83,7 +86,7 @@ const OrderPage = () => {
       set(ref(realTimeDb, "reserved_plates/" + v4()), {
         client_code: Number(code),
         client_name: username,
-        client_schedule: String(time),
+        client_schedule: clientSchedule,
         plate_id: id,
         plate_available: plateQuantity - 1 > 0,
         plate_description: plateDescription,

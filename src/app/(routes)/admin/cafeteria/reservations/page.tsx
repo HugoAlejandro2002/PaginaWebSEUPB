@@ -49,6 +49,7 @@ const ReservationPage = () => {
               }),
             })
           );
+          console.log(valuesArray)
           setOrders(valuesArray);
           setTimeout(() => {
             setLoading(false);
@@ -148,7 +149,6 @@ const ReservationPage = () => {
     plateFounded.plateQuantity += 1;
     updates[`/plates/${plateId}`] = plateFounded;
     await update(ref(realTimeDb), updates);
-    console.log("🚀 ~ deleteOrder ~ `/reserved_plates/${plateId}`:", `/reserved_plates/${plateId}`)
     await removeMyOrder(itemId);
   };
 
@@ -207,7 +207,7 @@ const ReservationPage = () => {
                   Precio
                 </th>
                 <th scope="col" className="px-6 py-3 text-center">
-                  Hora de Reserva
+                  Fecha y Hora de Reserva
                 </th>
                 <th colSpan={2} className="px-6 py-3 text-center">
                   Acciones
